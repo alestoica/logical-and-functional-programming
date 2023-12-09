@@ -1,0 +1,12 @@
+pronostic(l1..ln, nr, cx) = 
+
+l1 + pronostic(l2..ln, nr - 1, cx)
+		, daca nr > 1 si l1 = 2
+
+l1 + pronostic(l2..ln, nr - 1, cx - 1)
+		, daca nr > 0 si cx > 0 si l1 = 'X'
+
+l1 + pronostic(l2..ln, nr - 1, cx)
+		, daca nr > 0 si l1 = 1
+
+[]		, daca nr = 0
