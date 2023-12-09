@@ -1,0 +1,18 @@
+elemMax(l1..ln) = l1			, daca n = 1
+		  l1			, daca l1 > elemMax(l2..ln)
+		  elemMax(l2..ln)	, altfel
+
+
+posMax(l1..ln, max, pos) =
+	[]					, daca n = 0
+	[pos] + posMax(l2..ln, max, pos+1)	, daca l1 = max
+	posMax(l2..ln, max, pos+1)		, daca l1 != max
+
+
+posMaxMain(l) = posMAx(l, elemMax(l1..ln), 1)
+
+
+replaceSublist(l1..ln)
+	= []						, daca n = 0
+	  l1 + replaceSublist(l2..ln)			, daca l1 != list
+	  posMaxMain(l1) + replaceSublist(l2..ln) 	, daca l1 = list
