@@ -1,0 +1,15 @@
+; substitute(l, e, newE) =
+    ; l         , daca l != e si l este atom
+    ; newE      , daca l = e si l este atom
+    ; U substitute(li) , unde i = 1..n, altfel
+
+
+(defun mySubstitute (l e newE)
+  (cond
+    ((and (atom l) (not (equal l e))) l)
+    ((and (atom l) (equal l e)) newE)
+    (t (mapcar (lambda (newL) (mySubstitute newL e newE)) l))
+  )
+)
+
+(print (mySubstitute '(1 2 (1 2 3) 4 2 1 (1 1 1)) 1 0))
